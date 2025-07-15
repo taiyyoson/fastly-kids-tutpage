@@ -4,37 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taiyo Williamson - Personal Website</title>
+    <title>Taiyo Williamson - Cyberpunk Terminal</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="background-img"></div>
+    <div id="cyber-grid"></div>
+    <div id="neon-particles"></div>
+    <div id="scan-lines"></div>
 
     <div id="container">
-        <h3 id="name-intro">Hello! Welcome to my personal website</h3>
+        <div id="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span id="terminal-title">NEURAL_INTERFACE.exe</span>
+        </div>
 
-        <img src="imgs/profile_photo_webpage.jpg" alt="Profile Picture" id="profile-pic">
+        <h3 id="name-intro">&gt; ACCESSING PERSONAL DATABASE...</h3>
 
-        <h1 id="name">Taiyo Williamson</h1>
+        <div id="profile-container">
+            <img src="imgs/profile_photo_webpage.jpg" alt="Profile Picture" id="profile-pic">
+            <div id="profile-glitch"></div>
+        </div>
 
-        <h2 id="hometown">San Francisco, CA</h2>
+        <h1 id="name">TAIYO_WILLIAMSON.chr</h1>
+
+        <h2 id="hometown">&gt; LOCATION: San Francisco, CA</h2>
+
+        <div id="audio-player-container">
+            <h4 id="audio-label">&gt; NEURAL_SOUNDTRACK.wav</h4>
+            <audio id="retro-player" controls>
+                <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+                <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
         <h3 id="email">
-            Email:
+            &gt; CONTACT_PROTOCOL:
             <a href="mailto:taiyo.williamson@fastly.com" id="email-link">taiyo.williamson@fastly.com</a>
         </h3>
 
-        <p id="bio">
+        <div id="bio">
+            <span class="prompt">&gt; BIO_DATA.txt</span><br>
             I'm Taiyo Williamson, a CS student & Fastly intern based out of San Francisco! I am a rising senior at the
             University of San Francisco, and I enjoy coding so much *wink. In my free time, I like to read, play soccer,
             play video games, and surf!
-        </p>
+        </div>
 
-        <p id="fun-fact">
-           Click me!
-        </p>
+        <div id="fun-fact">
+           <span class="glitch" data-text="&gt; EXECUTE_FUN.exe">&gt; EXECUTE_FUN.exe</span>
+        </div>
     </div>
+
+    <div id="cyber-footer">
+        <span id="system-status">SYSTEM_STATUS: ONLINE</span>
+        <span id="timestamp"></span>
+    </div>
+
+    <script>
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('timestamp').textContent = 
+                `${now.getFullYear()}.${(now.getMonth()+1).toString().padStart(2,'0')}.${now.getDate().toString().padStart(2,'0')} ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 1000);
+
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('neon-particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
 </body>
 
 </html>
