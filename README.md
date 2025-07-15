@@ -1,10 +1,10 @@
-# Taiyo Williamson - Personal Website
+#  Fastly Tech Day Kid's Tutorial GitHub Page Hosting
 
 A responsive personal website built for the Fastly Tech Day Kid's Tutorial on GitHub Pages hosting.
 
 ## 🚀 Live Demo
 
-Visit the live website: [https://your-username.github.io/fastly-kids-tutpage](https://your-username.github.io/fastly-kids-tutpage)
+Visit the live website: [https://taiyyoson.github.io/fastly-kids-tutpage/](https://taiyyoson.github.io/fastly-kids-tutpage/)
 
 ## 📁 Project Structure
 
@@ -29,7 +29,7 @@ fastly-kids-tutpage/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/fastly-kids-tutpage.git
+   git clone https://github.com/taiyyoson/fastly-kids-tutpage.git
    cd fastly-kids-tutpage
    ```
 
