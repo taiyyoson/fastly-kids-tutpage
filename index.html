@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taiyo Williamson - Cyberpunk Terminal</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -34,11 +35,9 @@
         <h2 id="hometown">&gt; LOCATION: San Francisco, CA</h2>
 
         <div id="audio-player-container">
-            <h4 id="audio-label">&gt; NEURAL_SOUNDTRACK.wav</h4>
+            <h4 id="audio-label">&gt; STARDUST_VISION_LIGHTYEAR.wav</h4>
             <audio id="retro-player" controls>
-                <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-                <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
+                <source src="imgs/kim-lightyear-stardust-vision-ii-135754.mp3" type="audio/mpeg">
             </audio>
         </div>
 
@@ -55,7 +54,7 @@
         </div>
 
         <div id="fun-fact">
-           <span class="glitch" data-text="&gt; EXECUTE_FUN.exe">&gt; EXECUTE_FUN.exe</span>
+            <span class="glitch" data-text="&gt; EXECUTE_FUN.exe">&gt; EXECUTE_FUN.exe</span>
         </div>
     </div>
 
@@ -68,8 +67,8 @@
         // Update timestamp
         function updateTimestamp() {
             const now = new Date();
-            document.getElementById('timestamp').textContent = 
-                `${now.getFullYear()}.${(now.getMonth()+1).toString().padStart(2,'0')}.${now.getDate().toString().padStart(2,'0')} ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
+            document.getElementById('timestamp').textContent =
+                `${now.getFullYear()}.${(now.getMonth() + 1).toString().padStart(2, '0')}.${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
         }
         updateTimestamp();
         setInterval(updateTimestamp, 1000);
