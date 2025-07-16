@@ -11,31 +11,58 @@
 body {
     font-family: 'Share Tech Mono', monospace;
     line-height: 1.6;
-    color: #00ff41;
+    color: #c77dff;
     background: #0a0a0a;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Cyberpunk grid background */
+/* Retro synthwave background */
 #cyber-grid {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-image: url('imgs/retro-synthwave-neon-desktop-wallpaper-preview.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -3;
-    animation: gridPulse 4s ease-in-out infinite;
+    animation: synthwaveAnimation 8s ease-in-out infinite, synthwaveZoom 12s ease-in-out infinite alternate;
+    filter: brightness(0.7) contrast(1.2) saturate(1.3);
 }
 
-@keyframes gridPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+@keyframes synthwaveAnimation {
+    0%, 100% {
+        opacity: 0.8;
+        filter: brightness(0.7) contrast(1.2) saturate(1.3) hue-rotate(0deg);
+    }
+    25% {
+        opacity: 0.9;
+        filter: brightness(0.8) contrast(1.3) saturate(1.4) hue-rotate(10deg);
+    }
+    50% {
+        opacity: 0.7;
+        filter: brightness(0.6) contrast(1.4) saturate(1.5) hue-rotate(20deg);
+    }
+    75% {
+        opacity: 0.85;
+        filter: brightness(0.75) contrast(1.25) saturate(1.35) hue-rotate(15deg);
+    }
+}
+
+@keyframes synthwaveZoom {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.05) rotate(0.5deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(-0.5deg);
+    }
 }
 
 /* Floating neon particles */
@@ -64,12 +91,15 @@ body {
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 1;
     }
+
     90% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(-10vh) rotate(360deg);
         opacity: 0;
@@ -83,10 +113,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        transparent 50%, 
-        rgba(0, 255, 65, 0.03) 50%
-    );
+    background: linear-gradient(transparent 50%,
+            rgba(199, 125, 255, 0.03) 50%);
     background-size: 100% 4px;
     z-index: -1;
     pointer-events: none;
@@ -94,8 +122,13 @@ body {
 }
 
 @keyframes scanlines {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(4px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
 }
 
 /* Main container */
@@ -104,11 +137,11 @@ body {
     margin: 50px auto;
     padding: 0;
     background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #00ff41;
+    border: 2px solid #c77dff;
     border-radius: 10px;
-    box-shadow: 
-        0 0 20px #00ff41,
-        inset 0 0 20px rgba(0, 255, 65, 0.1);
+    box-shadow:
+        0 0 20px #c77dff,
+        inset 0 0 20px rgba(199, 125, 255, 0.1);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -121,25 +154,28 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(0, 255, 65, 0.1),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(199, 125, 255, 0.1),
+            transparent);
     animation: sweep 3s infinite;
 }
 
 @keyframes sweep {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 /* Terminal header */
 #terminal-header {
     background: #1a1a1a;
     padding: 10px 20px;
-    border-bottom: 1px solid #00ff41;
+    border-bottom: 1px solid #c77dff;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -152,16 +188,27 @@ body {
     display: inline-block;
 }
 
-.terminal-dot.red { background: #ff5f56; box-shadow: 0 0 10px #ff5f56; }
-.terminal-dot.yellow { background: #ffbd2e; box-shadow: 0 0 10px #ffbd2e; }
-.terminal-dot.green { background: #27ca3f; box-shadow: 0 0 10px #27ca3f; }
+.terminal-dot.red {
+    background: #ff5f56;
+    box-shadow: 0 0 10px #ff5f56;
+}
+
+.terminal-dot.yellow {
+    background: #ffbd2e;
+    box-shadow: 0 0 10px #ffbd2e;
+}
+
+.terminal-dot.green {
+    background: #9d4edd;
+    box-shadow: 0 0 10px #9d4edd;
+}
 
 #terminal-title {
-    color: #00ff41;
+    color: #c77dff;
     font-family: 'Orbitron', monospace;
     font-weight: 700;
     margin-left: auto;
-    text-shadow: 0 0 10px #00ff41;
+    text-shadow: 0 0 10px #c77dff;
 }
 
 /* Content styling */
@@ -175,8 +222,13 @@ body {
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 /* Profile picture container */
@@ -191,17 +243,17 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #00ff41;
-    box-shadow: 
-        0 0 20px #00ff41,
-        inset 0 0 20px rgba(0, 255, 65, 0.2);
+    border: 3px solid #c77dff;
+    box-shadow:
+        0 0 20px #c77dff,
+        inset 0 0 20px rgba(199, 125, 255, 0.2);
     transition: all 0.3s ease;
     filter: contrast(1.2) saturate(1.3);
 }
 
 #profile-pic:hover {
     transform: scale(1.05);
-    box-shadow: 
+    box-shadow:
         0 0 30px #ff0080,
         inset 0 0 30px rgba(255, 0, 128, 0.2);
     border-color: #ff0080;
@@ -216,14 +268,22 @@ body {
     background: url('imgs/profile_photo_webpage.jpg');
     background-size: cover;
     background-position: center;
+    background-color: #c77dff;
     border-radius: 50%;
     opacity: 0;
     animation: glitchProfile 5s infinite;
 }
 
 @keyframes glitchProfile {
-    0%, 90%, 100% { opacity: 0; }
-    91%, 99% { 
+
+    0%,
+    90%,
+    100% {
+        opacity: 0;
+    }
+
+    91%,
+    99% {
         opacity: 0.8;
         transform: translate(2px, 2px);
         filter: hue-rotate(90deg);
@@ -234,13 +294,13 @@ body {
 #name {
     font-family: 'Orbitron', monospace;
     font-size: 3em;
-    color: #00ff41;
+    color: #c77dff;
     margin: 20px 0;
     font-weight: 900;
-    text-shadow: 
-        0 0 10px #00ff41,
-        0 0 20px #00ff41,
-        0 0 30px #00ff41;
+    text-shadow:
+        0 0 10px #c77dff,
+        0 0 20px #c77dff,
+        0 0 30px #c77dff;
     letter-spacing: 3px;
 }
 
@@ -273,7 +333,7 @@ body {
     width: 100%;
     height: 40px;
     background: #1a1a1a;
-    border: 2px solid #00ff41;
+    border: 2px solid #c77dff;
     border-radius: 20px;
     outline: none;
     padding: 0 10px;
@@ -286,7 +346,7 @@ body {
 
 #retro-player::-webkit-media-controls-play-button,
 #retro-player::-webkit-media-controls-pause-button {
-    background-color: #00ff41;
+    background-color: #c77dff;
     border-radius: 50%;
     margin: 0 5px;
 }
@@ -299,17 +359,17 @@ body {
 
 #retro-player::-webkit-media-controls-current-time-display,
 #retro-player::-webkit-media-controls-time-remaining-display {
-    color: #00ff41;
-    text-shadow: 0 0 5px #00ff41;
+    color: #c77dff;
+    text-shadow: 0 0 5px #c77dff;
     font-family: 'Share Tech Mono', monospace;
 }
 
 /* Email section */
 #email {
     font-size: 1.1em;
-    color: #00ff41;
+    color: #c77dff;
     margin: 25px 20px;
-    text-shadow: 0 0 10px #00ff41;
+    text-shadow: 0 0 10px #c77dff;
 }
 
 #email-link {
@@ -321,8 +381,8 @@ body {
 }
 
 #email-link:hover {
-    color: #00ff41;
-    text-shadow: 0 0 15px #00ff41;
+    color: #c77dff;
+    text-shadow: 0 0 15px #c77dff;
     text-decoration: underline;
 }
 
@@ -330,12 +390,12 @@ body {
 #bio {
     font-size: 1.1em;
     line-height: 1.8;
-    color: #00ff41;
+    color: #c77dff;
     margin: 30px 20px;
     padding: 20px;
     background: rgba(0, 255, 65, 0.05);
     border-radius: 10px;
-    border-left: 4px solid #00ff41;
+    border-left: 4px solid #c77dff;
     text-align: left;
 }
 
@@ -381,30 +441,48 @@ body {
 
 .glitch::before {
     animation: glitch-1 0.5s infinite;
-    color: #00ff41;
+    color: #c77dff;
     z-index: -1;
 }
 
 .glitch::after {
     animation: glitch-2 0.5s infinite;
-    color: #0080ff;
+    color: #634763;
     z-index: -2;
 }
 
 @keyframes glitch-1 {
-    0%, 14%, 15%, 49%, 50%, 99%, 100% {
+
+    0%,
+    14%,
+    15%,
+    49%,
+    50%,
+    99%,
+    100% {
         transform: translate(0);
     }
-    15%, 49% {
+
+    15%,
+    49% {
         transform: translate(-2px, -2px);
     }
 }
 
 @keyframes glitch-2 {
-    0%, 20%, 21%, 62%, 63%, 99%, 100% {
+
+    0%,
+    20%,
+    21%,
+    62%,
+    63%,
+    99%,
+    100% {
         transform: translate(0);
     }
-    21%, 62% {
+
+    21%,
+    62% {
         transform: translate(2px, 2px);
     }
 }
@@ -416,14 +494,14 @@ body {
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
-    border-top: 1px solid #00ff41;
+    border-top: 1px solid #c77dff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     font-family: 'Share Tech Mono', monospace;
     font-size: 0.9em;
-    color: #00ff41;
-    text-shadow: 0 0 5px #00ff41;
+    color: #c77dff;
+    text-shadow: 0 0 5px #c77dff;
 }
 
 /* Responsive design */
@@ -432,27 +510,27 @@ body {
         margin: 20px;
         max-width: none;
     }
-    
+
     #name {
         font-size: 2.2em;
         letter-spacing: 2px;
     }
-    
+
     #profile-pic {
         width: 150px;
         height: 150px;
     }
-    
+
     #hometown {
         font-size: 1.1em;
     }
-    
+
     #bio {
         font-size: 1em;
         padding: 15px;
         margin: 20px 15px;
     }
-    
+
     #cyber-footer {
         flex-direction: column;
         gap: 5px;
@@ -464,29 +542,29 @@ body {
     #container {
         margin: 10px;
     }
-    
+
     #name {
         font-size: 1.8em;
         letter-spacing: 1px;
     }
-    
+
     #profile-pic {
         width: 120px;
         height: 120px;
     }
-    
+
     #name-intro {
         font-size: 1em;
     }
-    
+
     #hometown {
         font-size: 1em;
     }
-    
+
     #email {
         font-size: 0.9em;
     }
-    
+
     #audio-player-container {
         margin: 20px 10px;
         padding: 15px;
@@ -495,8 +573,15 @@ body {
 
 /* Additional cyberpunk effects */
 @keyframes neonFlicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
 }
 
 #container {
@@ -505,13 +590,21 @@ body {
 
 /* Matrix-style text effect for loading */
 .matrix-text {
-    color: #00ff41;
+    color: #c77dff;
     font-family: 'Share Tech Mono', monospace;
     animation: matrixRain 1s linear infinite;
 }
 
 @keyframes matrixRain {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
