@@ -16,6 +16,7 @@ body {
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* Cyberpunk grid background */
@@ -213,7 +214,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('imgs/profile_photo_webpage.jpg');
+    background: url('imgs/hacker_profile_photo.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -409,6 +410,82 @@ body {
     }
 }
 
+/* Style switcher */
+#style-switcher {
+    margin: 25px 20px 30px;
+    padding: 20px;
+    background: rgba(0, 255, 65, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #00ff41;
+}
+
+#theme-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.theme-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ff0080;
+    color: #ff0080;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 10px #ff0080;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.3);
+}
+
+.theme-btn:hover {
+    background: rgba(255, 0, 128, 0.2);
+    border-color: #00ff41;
+    color: #00ff41;
+    text-shadow: 0 0 15px #00ff41;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+    transform: translateY(-2px);
+}
+
+.theme-btn.active {
+    background: rgba(0, 255, 65, 0.2);
+    border-color: #00ff41;
+    color: #00ff41;
+    text-shadow: 0 0 15px #00ff41;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.theme-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.theme-btn:hover::before {
+    left: 100%;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
 /* Footer */
 #cyber-footer {
     position: fixed;
@@ -457,6 +534,16 @@ body {
         flex-direction: column;
         gap: 5px;
         text-align: center;
+    }
+    
+    #theme-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .theme-btn {
+        padding: 10px 15px;
+        font-size: 0.8em;
     }
 }
 
