@@ -59,6 +59,18 @@
                 <span class="glitch" data-text="&gt; EXECUTE_FUN.exe">&gt; EXECUTE_FUN.exe</span>
             </a>
         </div>
+
+        <div id="style-switcher">
+            <span class="prompt">&gt; THEME_SELECTOR.exe</span>
+            <div id="theme-buttons">
+                <button id="cyberpunk-btn" class="theme-btn active">
+                    <span class="btn-text">CYBERPUNK_MODE</span>
+                </button>
+                <button id="default-btn" class="theme-btn">
+                    <span class="btn-text">CLASSIC_MODE</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <div id="cyber-footer">
@@ -100,6 +112,45 @@
                 window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1', '_blank');
             }, 500);
         });
+
+        // Theme switcher functionality
+        function switchToCyberpunk() {
+            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+            const mainStylesheet = stylesheets[0]; // Get the first stylesheet (style.css)
+
+            if (mainStylesheet) {
+                mainStylesheet.href = 'style.css';
+                document.getElementById('cyberpunk-btn').classList.add('active');
+                document.getElementById('default-btn').classList.remove('active');
+
+                // Add transition effect
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                }, 200);
+            }
+        }
+
+        function switchToDefault() {
+            const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+            const mainStylesheet = stylesheets[0]; // Get the first stylesheet
+
+            if (mainStylesheet) {
+                mainStylesheet.href = 'default/style_default.css';
+                document.getElementById('default-btn').classList.add('active');
+                document.getElementById('cyberpunk-btn').classList.remove('active');
+
+                // Add transition effect
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                }, 200);
+            }
+        }
+
+        // Add event listeners
+        document.getElementById('cyberpunk-btn').addEventListener('click', switchToCyberpunk);
+        document.getElementById('default-btn').addEventListener('click', switchToDefault);
 
     </script>
 </body>
